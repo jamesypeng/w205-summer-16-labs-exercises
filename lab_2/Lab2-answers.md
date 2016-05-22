@@ -1,4 +1,4 @@
-## 1 - List the HDFS contents of /user
+### 1 - List the HDFS contents of /user
 ```bash
 [root@ip-172-31-57-120 ~]# sudo netstat -tulpn 
 Active Internet connections (only servers)
@@ -32,7 +32,7 @@ drwxrwxrwx   - root    supergroup          0 2016-05-22 00:30 /user/root
 drwxr-xr-x   - w205    supergroup          0 2016-05-22 00:31 /user/w205
 ```
 
-## 2 - Inspect the output of the HDFS admin report and answer the following questions in a text file.  To generate this, exit from the w205 user and type:
+### 2 - Inspect the output of the HDFS admin report and answer the following questions in a text file.  To generate this, exit from the w205 user and type:
 ```bash
 [root@ip-172-31-57-120 ~]# ^C
 [root@ip-172-31-57-120 ~]# sudo -u hdfs hdfs dfsadmin -report -live -dead -decommissioning
@@ -56,11 +56,11 @@ Decommissioning datanodes (0):
 
 ![alternate text](./2016-05-22_8-54-54.png)
 
-### Q1: How many live datanodes are there?
+#### Q1: How many live datanodes are there?
 > Live datanodes is 0
 
-### Q2: How much non-DFS storage is used?
+#### Q2: How much non-DFS storage is used?
 > non-DFS storage: 0 B
 
-### Q3: How much DFS storage is used?
+#### Q3: How much DFS storage is used?
 > DFS Used: 0 B
