@@ -105,7 +105,7 @@ tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_Efficiency_02_18_2016.csv" > $NEW_FILE_PATH
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_hai_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_hai_02_18_2016.csv"
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_hcahps_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_hcahps_02_18_2016.csv"
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_imm2_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_imm2_02_18_2016.csv"
-tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_outcome_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_outcome_02_18_2016.csv"
+#tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_outcome_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_outcome_02_18_2016.csv"
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_pn_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_pn_02_18_2016.csv"
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_scip_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_scip_02_18_2016.csv"
 tail -n +2 $ORIGINAL_FILE_PATH/"hvbp_tps_02_18_2016.csv" > $NEW_FILE_PATH/"hvbp_tps_02_18_2016.csv"
@@ -147,7 +147,6 @@ FILE_DIR=Measure_Dates
 hdfs dfs -mkdir $HDFS_EX1_PATH/$FILE_DIR
 hdfs dfs -put $NEW_FILE_PATH/$FILE_NAME $HDFS_EX1_PATH/$FILE_DIR
 hdfs dfs -ls $HDFS_EX1_PATH/$FILE_DIR
-
 
 
 FILE_NAME=Timely_and_Effective_Care.csv
