@@ -37,4 +37,4 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/Measure_Dates/Measure_Dates.csv';
+LOCATION '/user/w205/hospital_compare/Measure_Dates';
