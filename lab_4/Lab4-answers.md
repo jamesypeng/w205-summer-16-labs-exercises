@@ -1,4 +1,4 @@
-### 1 - Submit the first 10 rows of the unsorted and the sorted RDD to show that you successfully created both. Also explain the issue with the tuple and how to possibly correct it in the map/lambda function that was used to create the tuples.
+#### 1 - Submit the first 10 rows of the unsorted and the sorted RDD to show that you successfully created both. Also explain the issue with the tuple and how to possibly correct it in the map/lambda function that was used to create the tuples.
 
 ```bash
 >>> sorted.take(10)
@@ -16,14 +16,14 @@ firstTuple2
 (u'10184515', [u'HY372204', u'08/06/2015 11:55:00 PM', u'033XX W DIVERSEY AVE', u'2027', u'NARCOTICS', u'POSS: CRACK', u'STREET', u'true', u'false', u'1412', u'014', u'35', u'22', u'18', u'1153440', u'1918377', u'2015', u'08/13/2015 12:57:42 PM', u'41.931870591', u'-87.711546895', u'"(41.931870591', u' -87.711546895)"'])
 ```
 
-### 2 - Submit the number of rows returned by the select on eBay entries.
+#### 2 - Submit the number of rows returned by the select on eBay entries.
 ```bash
 > select count(*) from web_session_log where refererurl = "http://www.ebay.com" ;
 3943
 Time taken: 0.892 seconds, Fetched 1 row(s)
 ```
 
-### 3 - Submit the number returned in the DataFrame of the result.show() command.
+#### 3 - Submit the number returned in the DataFrame of the result.show() command.
 ```bash
 # Query the table
 results = sqlContext.sql('SELECT count(*) FROM Web_Session_Log')
