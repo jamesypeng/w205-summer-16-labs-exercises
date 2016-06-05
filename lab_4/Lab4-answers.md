@@ -23,3 +23,52 @@ firstTuple2
 Time taken: 0.892 seconds, Fetched 1 row(s)
 ```
 
+### 3 - Submit the number returned in the DataFrame of the result.show() command.
+```python
+# Query the table
+results = sqlContext.sql('SELECT count(*) FROM Web_Session_Log')
+# Use the DataFrame operation show to print the content of the result of the query
+results.show()
++-----+
+|  _c0|
++-----+
+|40002|
++-----+
+
+results2 = sqlContext.sql('SELECT count(*) FROM Web_Session_Log where REFERERURL="http://www.ebay.com"') 
+results2.show()
++----+
+| _c0|
++----+
+|3943|
++----+
+
+results3 = sqlContext.sql('SELECT * FROM Web_Session_Log')
+results3.show()
++-------------------+--------------------+--------------------+------------------+--------------------+
+|           DATETIME|              USERID|           SESSIONID|         PRODUCTID|          REFERERURL|
++-------------------+--------------------+--------------------+------------------+--------------------+
+|               date|              userid|           sessionid|         productid|          refererurl|
+|2008-01-31 15:54:25|__RequestVerifica...|;+.ASPXAUTH=C31HD...|/product/YJ29IOCVQ|  http://www.abc.com|
+|2005-12-08 02:36:30|__RequestVerifica...|;+.ASPXAUTH=H7HTS...|/product/MVI9HHP8A| http://www.ebay.com|
+|2015-06-07 23:27:58|__RequestVerifica...|;+.ASPXAUTH=58SZL...| /search/P5XKO3AC9|  http://www.abc.com|
+|2009-03-12 03:16:27|__RequestVerifica...|;+.ASPXAUTH=VBWZJ...|/product/A13025WBT|http://www.shophe...|
+|2014-07-23 08:36:03|__RequestVerifica...|;+.ASPXAUTH=VXBLE...| /search/5PI9XD6LZ|http://www.facebo...|
+|2002-12-30 08:42:09|__RequestVerifica...|;+.ASPXAUTH=YABJB...|/product/WS80XJFW2|  http://www.xyz.com|
+|2004-11-03 20:29:10|__RequestVerifica...|;+.ASPXAUTH=2F90N...|/product/OJ201IBUN|http://www.homesh...|
+|2012-01-26 12:39:57|__RequestVerifica...|;+.ASPXAUTH=SEWRR...|/product/OA3QGXF1U|  http://www.xyz.com|
+|2008-04-30 02:01:34|__RequestVerifica...|;+.ASPXAUTH=6OB10...| /search/K1IRBE1DU|  http://www.abc.com|
+|2003-08-23 09:44:43|__RequestVerifica...|;+.ASPXAUTH=1NRGS...|/product/ANGEKDMKM|http://www.shophe...|
+|2008-04-09 01:24:24|__RequestVerifica...|;+.ASPXAUTH=2Y8NA...|/product/LC94NBS9A|http://www.facebo...|
+|2000-08-07 06:45:19|__RequestVerifica...|;+.ASPXAUTH=KS9LL...| /search/HDKWJ5ORV|http://www.facebo...|
+|2013-10-09 05:22:31|__RequestVerifica...|;+.ASPXAUTH=UA1WH...| /search/5LPS3BTJI|http://www.facebo...|
+|2006-07-31 08:12:44|__RequestVerifica...|;+.ASPXAUTH=GDVM0...| /search/BW80TIDQP|  http://www.xyz.com|
+|2014-07-27 13:23:18|__RequestVerifica...|;+.ASPXAUTH=OY5S5...| /search/D5S8HFH9D|http://www.facebo...|
+|2001-01-10 18:23:03|__RequestVerifica...|;+.ASPXAUTH=VMOYI...|/product/I8VLXARNQ|  http://www.xyz.com|
+|2011-09-24 21:28:13|__RequestVerifica...|;+.ASPXAUTH=SDVEA...| /search/S44PIHRYX|http://www.shophe...|
+|2008-09-19 02:52:53|__RequestVerifica...|;+.ASPXAUTH=7NEBV...| /search/CX28DBZYW|http://www.shophe...|
+|2006-03-01 20:10:27|__RequestVerifica...|;+.ASPXAUTH=K58W1...|/product/GG8EXER8K|http://www.amazon...|
++-------------------+--------------------+--------------------+------------------+--------------------+
+only showing top 20 rows
+
+```
