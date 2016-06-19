@@ -8,6 +8,6 @@ SELECT t.provider_id, h.Hospital_Name,
 FROM hospital_score AS t
 LEFT JOIN hospital_info AS h ON t.Provider_ID=h.Provider_ID AND t.score > 0
 GROUP BY t.provider_id,  h.Hospital_Name 
-HAVING score_cnt >= 10
-ORDER BY avg_score DESC, agg_score DESC
+HAVING score_cnt >= 8
+ORDER BY avg_score DESC, sd_score ASC
 LIMIT 10;
