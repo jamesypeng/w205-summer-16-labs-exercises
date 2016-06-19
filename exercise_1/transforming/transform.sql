@@ -1,63 +1,130 @@
--- #######################################
--- Hospital Entity
-DROP TABLE  IF EXISTS Hospital_;
-CREATE TABLE Hospital_
-(
-    Provider_ID string,
-    Hospital_name string,
-    state string
-);
-INSERT OVERWRITE TABLE Hospital_    
-SELECT Provider_ID, Hospital_name, state
-FROM  Hospital_Info;
 
--- #######################################
--- # Process Care Entity
-DROP TABLE  IF EXISTS Process_domain_;
-CREATE TABLE Process_domain_
+-- #################################################
+-- Process Score
+DROP TABLE  IF EXISTS hospital_score;
+CREATE TABLE hospital_score
 (
     Provider_ID string,
-    Hospital_name string,
-    state string,
+    domain STRING,
     measure_id string,
-    measure_name string,
-    score DECIMAL(8,4),
-    higher_better string
+    score DECIMAL(8,4)
 );
-DROP VIEW IF EXISTS vProcess_domain_;
-CREATE VIEW vProcess_domain_ AS
-SELECT Provider_ID, Hospital_name, state, measure_id, measure_name, CAST(score AS DECIMAL(8,4)), 
-    CASE  
-        WHEN measure_id IN ('ED_1b', 'ED_2b', 'OP_1', 'OP_3b', 'OP_5', 
-                            'OP_18b', 'OP_20', 'OP_21', 'OP_22',
-                            'PC_01','VTE_6'
-                            ) THEN '0' 
-        ELSE '1' 
-    END as higher_better 
-FROM Timely_and_Effective_Care
--- WHERE measure_id NOT IN ('EDV')
-WHERE measure_id IN (--'AMI_7a', 
-'PN_6', 
-'SCIP_CARD_2',
-'SCIP_VTE_2',
-'SCIP_INF_2',
-'SCIP_INF_3',
-'SCIP_INF_9',
-'IMM_2')
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Process' ,'SCIP_INF_2', CAST(regexp_extract(SCIP_INF_2, '[0-9]*', 0) AS DECIMAL(8,4)) 
+FROM hvbp_hai
+WHERE CAST(regexp_extract(SCIP_INF_2, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
 ;
-INSERT INTO TABLE Process_domain_
-SELECT vProcess_domain_.*  
-FROM vProcess_domain_
-INNER JOIN
-(
-SELECT provider_id, COUNT(score) as score_cnt
-FROM vProcess_domain_
-WHERE score IS NOT NULL
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id,'Process' , 'SCIP_INF_3', CAST(regexp_extract(SCIP_INF_3, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_hai
+WHERE CAST(regexp_extract(SCIP_INF_3, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Process' ,'SCIP_INF_9', CAST(regexp_extract(SCIP_INF_9, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_hai
+WHERE CAST(regexp_extract(SCIP_INF_9, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Process' , 'PN_6', CAST(regexp_extract(PN_6, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_pn
+WHERE CAST(regexp_extract(PN_6, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Process' , 'IMM_2', CAST(regexp_extract(IMM_2, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_imm2
+WHERE CAST(regexp_extract(IMM_2, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Process' , 'SCIP_CARD_2', CAST(regexp_extract(SCIP_CARD_2, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_scip
+WHERE CAST(regexp_extract(SCIP_CARD_2, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id,'Process' ,  'SCIP_VTE_2', CAST(regexp_extract(SCIP_VTE_2, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_scip
+WHERE CAST(regexp_extract(SCIP_VTE_2, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+;
+
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'MORT_30_AMI', CAST(regexp_extract(MORT_30_AMI, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(MORT_30_AMI, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'MORT_30_HF', CAST(regexp_extract(MORT_30_HF, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(MORT_30_HF, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome',  'MORT_30_PN', CAST(regexp_extract(MORT_30_PN, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(MORT_30_PN, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'PSI_90', CAST(regexp_extract(PSI_90, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(PSI_90, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'Combined_SSI', CAST(regexp_extract(Combined_SSI, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(Combined_SSI, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+------------------------------------------------------------------------------
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'HAI_1', CAST(regexp_extract(HAI_1, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(HAI_1, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'HAI_2', CAST(regexp_extract(HAI_2, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(HAI_2, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'HAI_3', CAST(regexp_extract(HAI_3, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(HAI_3, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+INSERT INTO TABLE hospital_score
+SELECT provider_id, 'Outcome', 'HAI_4', CAST(regexp_extract(HAI_4, '[0-9]*', 0) AS DECIMAL(8,4))
+FROM hvbp_outcome
+WHERE CAST(regexp_extract(HAI_4, '[0-9]*', 0) AS DECIMAL(8,4)) IS NOT NULL
+; 
+
+-- #####################################################################################
+-- Find out the hospital has all the process score
+
+SELECT provider_id, COUNT(measure_id) AS cnt
+FROM Process_score_
+WHERE score > 0
 GROUP BY provider_id
-HAVING score_cnt >= 7
-) AS c on vProcess_domain_.Provider_ID = c.provider_id
+HAVING cnt >= 7
 ;
-DROP VIEW IF EXISTS vProcess_domain_;
+
+
+SELECT provider_id, COUNT(measure_id) AS cnt
+FROM Outcome_score_
+WHERE score > 0
+GROUP BY provider_id
+HAVING cnt >= 8
+;
+
 
 
 
@@ -75,15 +142,15 @@ INSERT INTO TABLE Survey_
 SELECT provider_id, CAST(patient_survey_star_rating AS DECIMAL) AS summary_rating
 FROM hcahps_hospital
 WHERE  hcahps_measure_id ='H_STAR_RATING'  
-AND  CAST(patient_survey_star_rating AS DECIMAL) IS NOT NULL
+AND CAST(patient_survey_star_rating AS DECIMAL) IS NOT NULL
 ;
 
 
 -- #########################################################333
 -- How many measure_id
-SELECT COUNT(DISTINCT measure_id) AS measure_id_cnt
-FROM Procedure_
-;
+-- SELECT COUNT(DISTINCT measure_id) AS measure_id_cnt
+-- FROM Procedure_
+-- ;
 -- 54 Measurement ID
 
 
