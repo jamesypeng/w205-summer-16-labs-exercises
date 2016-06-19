@@ -24,11 +24,9 @@ CREATE TABLE Process_domain_
     score DECIMAL(8,4),
     higher_better string
 );
--- INSERT INTO TABLE Procedure_    
--- SELECT Provider_ID, Hospital_name, state, measure_id,  measure_name ,CAST(score AS DECIMAL) , '0'
--- FROM Readmissions_and_Deaths;
-INSERT INTO TABLE Process_domain_
-SELECT Provider_ID, Hospital_name, state, measure_id, measure_name, CAST(score AS DECIMAL), 
+DROP VIEW IF EXISTS vProcess_domain_;
+CREATE VIEW vProcess_domain_ AS
+SELECT Provider_ID, Hospital_name, state, measure_id, measure_name, CAST(score AS DECIMAL(8,4)), 
     CASE  
         WHEN measure_id IN ('ED_1b', 'ED_2b', 'OP_1', 'OP_3b', 'OP_5', 
                             'OP_18b', 'OP_20', 'OP_21', 'OP_22',
@@ -47,6 +45,22 @@ WHERE measure_id IN (--'AMI_7a',
 'SCIP_INF_9',
 'IMM_2')
 ;
+INSERT INTO TABLE Process_domain_
+SELECT vProcess_domain_.*  
+FROM vProcess_domain_
+INNER JOIN
+(
+SELECT provider_id, COUNT(score) as score_cnt
+FROM vProcess_domain_
+WHERE score IS NOT NULL
+GROUP BY provider_id
+HAVING score_cnt >= 7
+) AS c on vProcess_domain_.Provider_ID = c.provider_id
+;
+DROP VIEW IF EXISTS vProcess_domain_;
+
+
+
 
 -- #####################################
 -- # Survey Result
