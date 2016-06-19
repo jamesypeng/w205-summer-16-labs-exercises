@@ -38,7 +38,14 @@ mkdir $NEW_FILE_PATH
 
 cd $ORIGINAL_FILE_PATH 
 
-wget -O Hospital_Revised_Flatfiles.zip https://data.medicare.gov/views/bg9k-emty/files/7825b9e4-e595-4f25-86e0-32a68d7ac7a4?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+
+HOSPITAL_FLATFILES=Hospital_Revised_Flatfiles.zip
+
+#
+# wget -O HOSPITAL_FLATFILES https://data.medicare.gov/views/bg9k-emty/files/7825b9e4-e595-4f25-86e0-32a68d7ac7a4?content_type=application%2Fzip%3B%20charset%3Dbinary&filename=Hospital_Revised_Flatfiles.zip
+#
+
+wget -O HOSPITAL_FLATFILES https://downloads.cms.gov/medicare/Hospital_Revised_flatfiles.zip
 
 # http://medicare.gov/download/HospitalCompare/2015/December/HOSArchive_Revised_FlatFiles_20151210.zip
 # https://downloads.cms.gov/medicare/Hospital_Revised_flatfiles.zip
@@ -46,7 +53,7 @@ wget -O Hospital_Revised_Flatfiles.zip https://data.medicare.gov/views/bg9k-emty
 wait
 # unzip files
 
-unzip Hospital_Revised_Flatfiles.zip
+unzip HOSPITAL_FLATFILES
 
 
 # Hospital General Information.csv
