@@ -121,16 +121,18 @@ tail -n +2 $ORIGINAL_FILE_PATH/"Measure Dates.csv" > $NEW_FILE_PATH/"Measure_Dat
   # inflating: hvbp_scip_05_28_2015.csv  
   # inflating: hvbp_tps_05_28_2015.csv  
 
-HVBP_AMI=hvbp_ami_05_28_2015.csv 
-HVBP_EFFICIENCY= hvbp_Efficiency_05_20_2015.csv
-HVBP_HAI=hvbp_hai_05_28_2015.csv
-HVBP_HCAHPS=hvbp_hcahps_05_28_2015.csv
-HVBP_HF=hvbp_hf_05_28_2015.csv
-HVBP_OUTCOME=hvbp_outcome_05_18_2015.csv
-HVBP_PN=hvbp_pn_05_28_2015.csv
-HVBP_QUARTERS=hvbp_quarters.csv
-HVBP_SCIP=hvbp_scip_05_28_2015.csv
-HVBP_TPS=hvbp_tps_05_28_2015.csv  
+HVBP_AMI="hvbp_ami_05_28_2015.csv"
+HVBP_EFFICIENCY="hvbp_Efficiency_05_20_2015.csv"
+HVBP_HAI="hvbp_hai_05_28_2015.csv"
+HVBP_HCAHPS="hvbp_hcahps_05_28_2015.csv"
+HVBP_HF="hvbp_hf_05_28_2015.csv"
+HVBP_OUTCOME="hvbp_outcome_05_18_2015.csv"
+HVBP_PN="hvbp_pn_05_28_2015.csv"
+HVBP_QUARTERS="hvbp_quarters.csv"
+HVBP_SCIP="hvbp_scip_05_28_2015.csv"
+HVBP_TPS="hvbp_tps_05_28_2015.csv" 
+
+tail -n +2 $ORIGINAL_FILE_PATH/"HCAHPS - Hospital.csv" > $NEW_FILE_PATH/"HCAHPS_Hospital.csv"
 
 tail -n +2 $ORIGINAL_FILE_PATH/$HVBP_AMI > $NEW_FILE_PATH/$HVBP_AMI
 tail -n +2 $ORIGINAL_FILE_PATH/$HVBP_EFFICIENCY > $NEW_FILE_PATH/$HVBP_EFFICIENCY
