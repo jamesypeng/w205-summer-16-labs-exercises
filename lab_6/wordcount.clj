@@ -12,9 +12,9 @@
                 "spouts.sentences.Sentences"
                 ;; output specification, what named fields will this spout emit
                 ["sentence"]
-				;;  two work threads
-				:p 1
-				)
+                ;;  two work threads
+                :p 1
+                )
     }
     
     ;; bolt configuration
@@ -29,20 +29,21 @@
                 ["word"]
                 ;; configuration paramters
                 :p 1
-				)
+                )
     } 
-	
-	
+    
+    
     ;; bolt configuration
     {"TweetCounter-bolt" (python-bolt-spec
                 options
-                {"Parse-1-bolt"  ["word"]}
+                ;; inputs,
+                {"Parse-1-bolt" ["word"]}
                 ;; class to run 
                 "bolts.tweetcounter.TweetCounter"
                 ;; output spec, what tuples does this bolt emit
                 ["word" "count"]
                 :p 1
-				)
+                )
     }
     ]
 )
