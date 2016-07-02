@@ -36,7 +36,7 @@
     ;; bolt configuration
     {"TweetCounter-bolt" (python-bolt-spec
                 options
-                {"Parse-1-bolt" :shuffle}
+                {"Parse-1-bolt"  ["word"]}
                 ;; class to run 
                 "bolts.tweetcounter.TweetCounter"
                 ;; output spec, what tuples does this bolt emit
