@@ -1,11 +1,16 @@
 from __future__ import absolute_import, print_function,unicode_literals
 import re
 from streamparse.bolt import Bolt
+from collections import Counter
 
 def ascii_string(s):
     return all(ord(c) < 128 for c in s)
 
 class ParseTweet(Bolt):
+    
+    def initialize(self, conf, ctx):
+        self.counts = Counter()
+
     def process(self, tup):
         tweet = tup.values[0] # extract the tweet
         # Split the tweet into words
@@ -23,15 +28,19 @@ class ParseTweet(Bolt):
             # Filter out the urls
             if word.startswith("http"): continue
             
-			# Strip leading and lagging punctuations
+            # Strip leading and lagging punctuations
             aword = word.strip("\"?><,'.:;)")
             
             # now check if the word contains only ascii
             if len(aword) > 0 and ascii_string(word):
                 valid_words.append([aword])
         
-        if not valid_words: return
+        if not valid_words: 
+            return
         
+        self.counts['0'] += 1
+
         # Emit all the words
         self.emit_many(valid_words)
-# tuple acknowledgment is handled automatically.
+        # tuple acknowledgment is handled automatically.
+        self.log('%s: %d' % (valid_words,  self.counts['0']))
