@@ -35,7 +35,7 @@
                 options
                 {"Y-bolt" :shuffle}
                 ;; class to run 
-                "bolts.tweetcounter.TweetCount"
+                "bolts.tweetcounter.TweetCounter"
                 ;; output spec, what tuples does this bolt emit
                 ["word" "count"]
                 :p 2
