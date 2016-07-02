@@ -12,12 +12,11 @@
                 "spouts.sentences.Sentences"
                 ;; output specification, what named fields will this spout emit
                 ["sentence"]
-                ;; configuration paramters, can specify multiple
-                :p 1)
+				)
     }
     
     ;; bolt configuration
-    {"Y-bolt"   (python-bolt-spec
+    {"Y-bolt"   (python-bolt-spec 
                 ;; topology options passed in
                 options
                 ;; inputs, where does this bolt receives its tuples from ?
@@ -27,19 +26,20 @@
                 ;; output spec, what tuples does this bolt emit
                 ["word"]
                 ;; configuration paramters
-                ;; ":p" - the parallelsim thread  
-                :p 1)
+                :p 2
+				)
     }
     
     ;; bolt configuration
     {"Z-bolt"   (python-bolt-spec
                 options
-                {"Y-spout" :shuffle}
+                {"Y-bolt" :shuffle}
                 ;; class to run 
                 "bolts.tweetcounter.TweetCount"
                 ;; output spec, what tuples does this bolt emit
                 ["word" "count"]
-                :p 1)
+                :p 2
+				)
     }
     ]
 )
