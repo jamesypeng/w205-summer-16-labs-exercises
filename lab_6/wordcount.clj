@@ -29,7 +29,7 @@
                 ;; output spec, what tuples does this bolt emit
                 ["word"]
                 ;; configuration paramters
-                :p 1
+                :p 3
                 )
 		"Parse-2-bolt"   (python-bolt-spec 
                 ;; topology options passed in
@@ -41,7 +41,7 @@
                 ;; output spec, what tuples does this bolt emit
                 ["word"]
                 ;; configuration paramters
-                :p 1
+                :p 2
                 )
 
 		;; bolt configuration
