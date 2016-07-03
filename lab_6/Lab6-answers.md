@@ -1,6 +1,6 @@
 ### Submit a PDF that includes your topology file based on Figure 1 (wordcount.clj) and a screenshot of your running application that shows the stream of tweet counts on screen.
 
-#### wordcount.clj
+#### [wordcount.clj](https://github.com/jamesypeng/w205-summer-16-labs-exercises/blob/master/lab_6/wordcount.clj)
 
 ```bash
 (ns wordcount
@@ -69,7 +69,7 @@
 ```
 ####  [run logs](https://raw.githubusercontent.com/jamesypeng/w205-summer-16-labs-exercises/master/lab_6/2016_07_03_sparse_run.log)
 
-```{bash}
+```
 
 [root@ip-172-31-9-113 tweetcount]# sparse run
 Running wordcount topology...
