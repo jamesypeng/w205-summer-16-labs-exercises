@@ -67,7 +67,7 @@
     ]
 )
 ```
-#### run logs
+####  [run logs](https://raw.githubusercontent.com/jamesypeng/w205-summer-16-labs-exercises/master/lab_6/2016_07_03_sparse_run.log)
 
 ```{bash}
 
