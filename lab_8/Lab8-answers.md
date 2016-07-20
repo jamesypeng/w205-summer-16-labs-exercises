@@ -1,6 +1,6 @@
 ### 1) How many rows are missing a value in the “State” column? Explain how you came up with the number.
 
-![alternate text](./#1-2016-07-19_23-29-04.png)
+![alternate text](./1-2016-07-19_23-29-04.png)
 
 ### 2) How many rows with missing ZIP codes do you have?
 
