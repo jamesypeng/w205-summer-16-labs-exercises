@@ -9,7 +9,11 @@ class WordCounter(Bolt):
 
     def initialize(self, conf, ctx):
         self.counts = Counter()
-		self.conn = psycopg2.connect(database="tcount", user="w205", password="postgres", host="localhost", port="5432")
+	self.conn = psycopg2.connect(database="tcount", user="w205", password="postgres", host="localhost", port="5432")
+        cur = self.conn.cursor()
+        cur.execute("delete from Tweetwordcount")
+        self.conn.commit()
+ 
 #        self.redis = StrictRedis()
 
     def process(self, tup):
@@ -21,10 +25,9 @@ class WordCounter(Bolt):
         # Table name: Tweetwordcount 
         # you need to create both the database and the table in advance.
 
-		cur = conn.cursor()
-		#cur.execute("SELECT upsert('k', 3 );)");
-		cur.execute("SELECT upsert(%s,%d)", (uWord, 1))
-        conn.commit()
+	cur = self.conn.cursor()
+	cur.execute("SELECT upsert(%s,%s)", (word, 1))
+        self.conn.commit()
 
 
         # Increment the local count
