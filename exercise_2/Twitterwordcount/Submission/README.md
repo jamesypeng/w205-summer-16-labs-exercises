@@ -181,7 +181,7 @@ python finalresults.py been we
 
 ##### 3.5.3 Histogram `<min_cnt>` `<max_cnt>`
 ```{bash}
-hstogram.py 6 10
+python histogram.py 6 10
 ("come": 10)
 ("Brandy": 10)
 ("she": 10)
