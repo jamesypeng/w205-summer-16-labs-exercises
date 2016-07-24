@@ -6,11 +6,11 @@
 
 ---------------------
 
-## Architecture
+## 1. Architecture
 
 ----------------------
 
-## Screenshots
+## 2. Screenshots
 
 ![screenshot-twitterStream.png](./Screenshots/screenshot-twitterStream.png)
 
@@ -22,9 +22,9 @@
 
 -----------------------
 
-## Step-by-step Instructions
+## 3. Step-by-step Instructions
 
-### 1. Login to PostgreSQL Create Database and User
+#### 1. Login to PostgreSQL Create Database and User
 
 ```{bash}
 [root@ip-172-31-9-113 ~]# psql --username=postgres
@@ -39,7 +39,7 @@ ALTER DATABASE Tcount OWNER TO w205;
 GRANT ALL ON DATABASE Tcount TO w205;
 ``` 
 
-### 2.  Login to PostgreSQL as w205 and Create table  
+#### 2. Login to PostgreSQL as w205 and Create table  
 
 ```{bash}
 [root@ip-172-31-9-113 data]# psql --host=localhost --username=w205 --password --dbname=tcount
@@ -53,7 +53,7 @@ CREATE TABLE Tweetwordcount
        count BIGINT     NOT NULL);
 ```
 
-### 3. Run the streamsparse project in AWS
+#### 3. Run the streamsparse project in AWS
 
 ```{bash}
 [root@ip-172-31-9-113 Twitterwordcount]# sparse run
@@ -66,7 +66,7 @@ Press control-C to abort or Enter to continue as root.
 Set LEIN_ROOT to disable this warning.
 ```
 
-### 4. Check the tweetwordcount table
+#### 4. Check the tweetwordcount table
 
 ```{bash}
 [root@ip-172-31-9-113 data]# psql --host=localhost --username=w205 --password --dbname=tcount
@@ -114,21 +114,21 @@ tcount=> SELECT * FROM tweetwordcount LIMIT 10;
 tcount=> 
 ```
 
-### 5. Run the finalresult.py and histogram.py
+#### 5. Run the finalresult.py and histogram.py
 
-#### Retrieve the full list of word of twitter stream
+##### Retrieve the full list of word of twitter stream
 ```{bash}
 python finalresults.py
 ```
 
-#### Retrieve the counter of specific words
+##### Retrieve the counter of specific words
 ```{bash}
 python finalresults.py been we
 > Total number of occurences of "we": 19
 > Total number of occurences of "been": 12
 ```
 
-### Histogram `<min_cnt>` `<max_cnt>`
+##### Histogram `<min_cnt>` `<max_cnt>`
 ```{bash}
 hstogram.py 6 10
 ("come": 10)
