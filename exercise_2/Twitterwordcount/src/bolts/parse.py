@@ -14,6 +14,9 @@ class ParseTweet(Bolt):
     def process(self, tup):
         tweet = tup.values[0]  # extract the tweet
 
+        #self.log('Twtter stream: %s' % (unicode(tweet,'utf8'))) 
+
+
         # Split the tweet into words
         words = tweet.split()
 
