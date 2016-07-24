@@ -8,7 +8,7 @@
 
 ## 1 Architecture
 
-#### Application Overview 
+### Application Overview 
 
 This project consists of four major modules
 
@@ -22,15 +22,15 @@ The 'upsert' function will 1) insert the word as key into table if the word does
 The two python scripts also utilize psycopg2 module to access PostgreSQL database, and retrieve data through SQL query commands. 
 Tableau which connects PostgreSQL server through IP network, provides good visualization of data analysis. 
 
-#### Architecture Diagram
+### Architecture Diagram
 
 ![arch.png](./arch.png)
 
-#### Directories
+### Directories
 
 ![directories.png](./directories.png)
 
-#### Database Design
+### Database Design
 
 ##### 1. Tweetwordcount table
 
