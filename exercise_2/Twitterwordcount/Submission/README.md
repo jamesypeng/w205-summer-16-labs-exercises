@@ -75,7 +75,7 @@ SELECT upsert('test', 10 );
 
 ## 3. Step-by-step Instructions
 
-#### 3.1 Login to PostgreSQL Create Database and User
+#### 3.1 Login to PostgreSQL server, Create 'Tcount' database and User 'w205'
 
 ```{bash}
 [root@ip-172-31-9-113 ~]# psql --username=postgres
