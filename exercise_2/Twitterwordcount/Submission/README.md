@@ -6,15 +6,23 @@
 
 ---------------------
 
-# Architecture
+## Architecture
 
 ----------------------
 
-# Screenshots
+## Screenshots
+
+![screenshot-twitterStream.png](./Screenshots/screenshot-twitterStream.png)
+
+![screenshot-stormcomponents.png](./Screenshots/screenshot-stormcomponents.png)
+
+![screenshot-finalresults.png](./Screenshots/screenshot-finalresults.png)
+
+![screenshot-histogram.png](./Screenshots/screenshot-histogram.png)
 
 -----------------------
 
-# Step-by-step Instructions
+## Step-by-step Instructions
 
 ### 1. Login to PostgreSQL Create Database and User
 
@@ -234,4 +242,6 @@ hstogram.py 6 10
 
 -----------------------------
 
-# Bar charts showing Top 20 words in the Twitter stream
+## Bar charts showing Top 20 words in the Twitter stream
+
+![Top 20 words in the Twitter stream](./plot.png "Top 20 words in the Twitter stream")
