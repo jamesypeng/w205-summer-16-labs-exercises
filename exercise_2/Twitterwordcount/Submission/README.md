@@ -14,7 +14,7 @@ This project consists of four major modules
 
 1. **Twitter API connection** - Twitter will be the server of data source and its APIs allow developers to track the twitter messages in real-time. Through its streaming APIs, we can filter out unwanted languages and messages .  
 2. **Streamparse Framework** - By utilizing the streamparse framework, we create one sprout and two bolts. The sprout, the entry point of the data source, will interface with Twitter APIs and receive real-time twitter message streaming. The Sprout will emit twitter messages to 'ParseTweet' bolt.
-In 'ParseTweet' bolt, twitter messages will be splited into word list which are filtered out special characters (e.g. #!@#$%^&), and finally emitted to the next bolt 'WordCounter'
+In 'ParseTweet' bolt, twitter messages will be split into word list which are filtered out special characters (e.g. #!@#$%^&), and finally emitted to the next bolt 'WordCounter'
 In 'WordCounter' bolt, a dictionary 'Counter' will keep track number of occurance of words. In addition, it interfaces PostgreSQL thrugh psycopg2 module to update the record in the database table.     
 3. **PostgreSQL Integration** - Python psycopg2 module encapsulates PostgreSQL database access. Database connection is IP based, therefore the streamparse project and PostgreSQL server could be run in different hosts. As such, we can scale the data processing capability easily by optimizing the data processing and/or data ingestion seperately, if one of them deemed to be the bottleneck. An 'upsert' function is created in the PostgreSQL to provide the equalivant function of 'INSERT INTO ... ON DUPLICATE KEY UPDATE' of MySQL. 
 The 'upsert' function will 1) insert the word as key into table if the word does not exist or 2) increase the 'count' by 1 if the word exists through 'UPDATE' SQL command. This function also performs atomic operation (UPDATE-INSERT), hence, eliminating the race conditions.   
@@ -75,7 +75,7 @@ SELECT upsert('test', 10 );
 
 ## 3. Step-by-step Instructions
 
-#### 1. Login to PostgreSQL Create Database and User
+#### 3.1 Login to PostgreSQL Create Database and User
 
 ```{bash}
 [root@ip-172-31-9-113 ~]# psql --username=postgres
@@ -90,7 +90,7 @@ ALTER DATABASE Tcount OWNER TO w205;
 GRANT ALL ON DATABASE Tcount TO w205;
 ``` 
 
-#### 2. Login to PostgreSQL as w205 and Create table  
+#### 3.2 Login to PostgreSQL as w205 and Create table  
 
 ```{bash}
 [root@ip-172-31-9-113 data]# psql --host=localhost --username=w205 --password --dbname=tcount
@@ -104,7 +104,7 @@ CREATE TABLE Tweetwordcount
        count BIGINT     NOT NULL);
 ```
 
-#### 3. Run the streamsparse project in AWS
+#### 3.3 Run the streamsparse project in AWS
 
 ```{bash}
 [root@ip-172-31-9-113 Twitterwordcount]# sparse run
@@ -117,7 +117,7 @@ Press control-C to abort or Enter to continue as root.
 Set LEIN_ROOT to disable this warning.
 ```
 
-#### 4. Check the tweetwordcount table
+#### 3.4 Check the tweetwordcount table
 
 ```{bash}
 [root@ip-172-31-9-113 data]# psql --host=localhost --username=w205 --password --dbname=tcount
@@ -165,21 +165,21 @@ tcount=> SELECT * FROM tweetwordcount LIMIT 10;
 tcount=> 
 ```
 
-#### 5. Run the finalresult.py and histogram.py
+#### 3.5 Run the finalresult.py and histogram.py
 
-##### Retrieve the full list of word of twitter stream
+##### 3.5.1 Retrieve the full list of word of twitter stream
 ```{bash}
 python finalresults.py
 ```
 
-##### Retrieve the counter of specific words
+##### 3.5.2 Retrieve the counter of specific words
 ```{bash}
 python finalresults.py been we
 > Total number of occurences of "we": 19
 > Total number of occurences of "been": 12
 ```
 
-##### Histogram `<min_cnt>` `<max_cnt>`
+##### 3.5.3 Histogram `<min_cnt>` `<max_cnt>`
 ```{bash}
 hstogram.py 6 10
 ("come": 10)
