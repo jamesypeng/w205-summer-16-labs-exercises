@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9300.16.0708.1543                                -->
+<workbook source-build='9.3.4 (9300.16.0708.1543)' source-platform='win' version='9.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='tweetwordcount (tcount)' inline='true' name='postgres.1568xlb0zqrek115xt2d006pjb39' version='9.3'>
+      <connection authentication='username-password' class='postgres' dbname='tcount' odbc-native-protocol='yes' port='5432' server='54.227.25.254' username='w205'>
+        <relation name='tweetwordcount' table='[public].[tweetwordcount]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>word</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[word]</local-name>
+            <parent-name>[tweetwordcount]</parent-name>
+            <remote-alias>word</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[count]</local-name>
+            <parent-name>[tweetwordcount]</parent-name>
+            <remote-alias>count</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Count' datatype='integer' name='[count]' role='measure' type='quantitative' />
+      <column caption='Word' datatype='string' name='[word]' role='dimension' type='nominal' />
+      <column-instance column='[word]' derivation='None' name='[none:word:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.487061' measure-ordering='alphabetic' measure-percentage='0.512939' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:word:nk]' type='palette'>
+            <map to='#17becf'>
+              <bucket>&quot;so&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;the&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;to&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;it&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;with&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;for&quot;</bucket>
+            </map>
+            <map to='#98df8a'>
+              <bucket>&quot;and&quot;</bucket>
+            </map>
+            <map to='#9edae5'>
+              <bucket>&quot;this&quot;</bucket>
+            </map>
+            <map to='#aec7e8'>
+              <bucket>&quot;I&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;&amp;amp&quot;</bucket>
+            </map>
+            <map to='#c49c94'>
+              <bucket>&quot;me&quot;</bucket>
+            </map>
+            <map to='#c5b0d5'>
+              <bucket>&quot;in&quot;</bucket>
+            </map>
+            <map to='#c7c7c7'>
+              <bucket>&quot;just&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;is&quot;</bucket>
+            </map>
+            <map to='#dbdb8d'>
+              <bucket>&quot;your&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;i&quot;</bucket>
+            </map>
+            <map to='#f7b6d2'>
+              <bucket>&quot;my&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;a&quot;</bucket>
+            </map>
+            <map to='#ff9896'>
+              <bucket>&quot;of&quot;</bucket>
+            </map>
+            <map to='#ffbb78'>
+              <bucket>&quot;you&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='tweetwordcount (tcount)' name='postgres.1568xlb0zqrek115xt2d006pjb39' />
+          </datasources>
+          <datasource-dependencies datasource='postgres.1568xlb0zqrek115xt2d006pjb39'>
+            <column caption='Count' datatype='integer' name='[count]' role='measure' type='quantitative' />
+            <column-instance column='[word]' derivation='None' name='[none:word:nk]' pivot='key' type='nominal' />
+            <column-instance column='[count]' derivation='Sum' name='[sum:count:qk]' pivot='key' type='quantitative' />
+            <column caption='Word' datatype='string' name='[word]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]'>
+            <groupfilter count='20' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([count])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:word:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='computed' column='[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]' direction='DESC' using='[postgres.1568xlb0zqrek115xt2d006pjb39].[sum:count:qk]' />
+          <slices>
+            <column>[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]' value='40' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]</rows>
+        <cols>[postgres.1568xlb0zqrek115xt2d006pjb39].[sum:count:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[postgres.1568xlb0zqrek115xt2d006pjb39].[none:count:qk]</field>
+            <field>[postgres.1568xlb0zqrek115xt2d006pjb39].[none:word:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
