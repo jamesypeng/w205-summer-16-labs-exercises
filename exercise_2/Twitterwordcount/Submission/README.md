@@ -1,12 +1,12 @@
 # Table of Contents
-1. [Architecture](#architecture)
-2. [Screenshots](#screenshots)
-3. [Step-by-step Instructions](#step-by-step-instructions)
+1. [Architecture](#1-architecture)
+2. [Screenshots](#2-screenshots)
+3. [Step-by-step Instructions](#3-step-by-step-instructions)
 4. [Bar Charts Showing Top 20 Words in the Twitter Stream](#4-bar-charts-showing-top-20-words-in-the-twitter-stream)
 
 ---------------------
 
-## 1. Architecture
+## 1 Architecture
 
 #### Application Overview 
 
@@ -61,7 +61,7 @@ SELECT upsert('test', 10 );
 
 ----------------------
 
-## 2. Screenshots
+## 2 Screenshots
 
 ![screenshot-twitterStream.png](./Screenshots/screenshot-twitterStream.png)
 
@@ -73,7 +73,7 @@ SELECT upsert('test', 10 );
 
 -----------------------
 
-## 3. Step-by-step Instructions
+## 3 Step-by-step Instructions
 
 #### 3.1 Login to PostgreSQL server, Create 'Tcount' database and User 'w205'
 
