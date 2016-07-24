@@ -1,8 +1,8 @@
 # Table of Contents
-1. [Architecture](#Architecture)
-2. [Screenshots](#Screenshots)
-3. [Step-by-step Instructions](#Step-by-step-Instructions)
-4. [Bar charts showing Top 20 words in the Twitter stream](#Bar-charts-showing-Top-20-words-in-the-Twitter-stream)
+1. [Architecture](#architecture)
+2. [Screenshots](#screenshots)
+3. [Step-by-step Instructions](#step-by-step-instructions)
+4. [Bar Charts Showing Top 20 Words in the Twitter Stream](#bar-charts-showing-top-20-words-in-the-twitter-stream)
 
 ---------------------
 
@@ -218,6 +218,6 @@ python histogram.py 6 10
 
 -----------------------------
 
-## 4. Bar charts showing Top 20 words in the Twitter stream
+## 4. Bar Charts Showing Top 20 Words in the Twitter Stream
 
 ![Top 20 words in the Twitter stream](./plot.png "Top 20 words in the Twitter stream")
