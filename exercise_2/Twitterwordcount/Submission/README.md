@@ -8,6 +8,57 @@
 
 ## 1. Architecture
 
+#### Application Overview 
+
+This project consists of four major modules
+
+1. **Twitter API connection** - Twitter will be the server of data source and its APIs allow developers to track the twitter messages in real-time. Through its streaming APIs, we can filter out unwanted languages and messages .  
+2. **Streamparse Framework** - By utilizing the streamparse framework, we create one sprout and two bolts. The sprout, the entry point of the data source, will interface with Twitter APIs and receive real-time twitter message streaming. The Sprout will emit twitter messages to 'ParseTweet' bolt.
+In 'ParseTweet' bolt, twitter messages will be splited into word list which are filtered out special characters (e.g. #!@#$%^&), and finally emitted to the next bolt 'WordCounter'
+In 'WordCounter' bolt, a dictionary 'Counter' will keep track number of occurance of words. In addition, it interfaces PostgreSQL thrugh psycopg2 module to update the record in the database table.     
+3. **PostgreSQL Integration** - Python psycopg2 module encapsulates PostgreSQL database access. Database connection is IP based, therefore the streamparse project and PostgreSQL server could be run in different hosts. As such, we can scale the data processing capability easily by optimizing the data processing and/or data ingestion seperately, if one of them deemed to be the bottleneck. An 'upsert' function is created in the PostgreSQL to provide the equalivant function of 'INSERT INTO ... ON DUPLICATE KEY UPDATE' of MySQL. 
+The 'upsert' function will 1) insert the word as key into table if the word does not exist or 2) increase the 'count' by 1 if the word exists through 'UPDATE' SQL command. This function also performs atomic operation (UPDATE-INSERT), hence, eliminating the race conditions.   
+4. **Offline Analysis** - offline analysis is performed by 1) two python scripts - finalresults.py and histogram.py and 2) Tableau. 
+The two python scripts also utilize psycopg2 module to access PostgreSQL database, and retrieve data through SQL query commands. 
+Tableau which connects PostgreSQL server through IP network, provides good visualization of data analysis. 
+
+#### Architecture Diagram
+
+![arch.png](./arch.png)
+
+#### Directories
+
+![directories.png](./directories.png)
+
+#### Database Design
+
+##### 1. Tweetwordcount table
+
+```{sql}
+CREATE TABLE Tweetwordcount
+       (word TEXT PRIMARY KEY NOT NULL,
+       count BIGINT     NOT NULL);
+```    
+##### 2. UPSERT Function
+
+```{sql}
+CREATE OR REPLACE FUNCTION upsert(key TEXT, data BIGINT) RETURNS VOID AS $$ 
+DECLARE 
+BEGIN 
+    UPDATE Tweetwordcount SET count = count + data WHERE word = key; 
+    IF NOT FOUND THEN 
+        INSERT INTO Tweetwordcount(word,count) VALUES (key, data); 
+    END IF; 
+END; 
+```
+```{sql}
+-- increase by 1
+SELECT upsert('test', 1 );
+
+-- increase by 10
+SELECT upsert('test', 10 );
+```
+
 ----------------------
 
 ## 2. Screenshots
@@ -137,82 +188,7 @@ hstogram.py 6 10
 ("man": 10)
 ("sing": 10)
 ("make": 10)
-("I've": 10)
-("last": 10)
-("everything": 10)
-("even": 10)
-("years": 10)
-("say": 9)
-("I'll": 9)
-("better": 9)
-("It's": 9)
-("only": 9)
-("happy": 9)
-("look": 9)
-("real": 9)
-("an": 9)
-("ALL": 9)
-("person": 9)
-("he's": 9)
-("friends": 9)
-("enough": 9)
-("ur": 9)
-("TO": 9)
-("IS": 9)
-("you're": 9)
-("If": 9)
-("liked": 9)
-("This": 9)
-("One": 9)
-("many": 8)
-("via": 8)
-("us": 8)
-("had": 8)
-("keep": 8)
-("take": 8)
-("every": 8)
-("Just": 8)
-("really": 8)
-("text": 8)
-("find": 8)
-("ever": 8)
-("sure": 8)
-("best": 8)
-("meet": 8)
-("end": 8)
-("4": 7)
-("done": 7)
-("kill": 7)
-("being": 7)
-("And": 7)
-("5": 7)
-("shit": 7)
-("baby": 7)
-("very": 7)
-("wanna": 7)
-("during": 7)
-("others": 7)
-("used": 7)
-("thing": 7)
-("6": 7)
-("Thank": 7)
-("did": 7)
-("different": 7)
-("said": 7)
-("miss": 6)
-("doesn't": 6)
-("email": 6)
-("tweets": 6)
-("true": 6)
-("dog": 6)
-("heart": 6)
-("MY": 6)
-("talk": 6)
-("same": 6)
-("photo": 6)
-("guys": 6)
-("So": 6)
-("should": 6)
+...
 ("going": 6)
 ("Love": 6)
 ("thank": 6)
@@ -242,6 +218,6 @@ hstogram.py 6 10
 
 -----------------------------
 
-## Bar charts showing Top 20 words in the Twitter stream
+## 4. Bar charts showing Top 20 words in the Twitter stream
 
 ![Top 20 words in the Twitter stream](./plot.png "Top 20 words in the Twitter stream")
