@@ -205,7 +205,7 @@ LIMIT 5
 ![alternate text](./Lab9-Q5-5Nodes-2016-07-30_11-10-40.png)
 
 
-#### 6 Teammates
+#### 6 Teammates, ANT-MAN joined the team
 ```
 ╒══════════════════════════════╕
 │other                         │
@@ -230,7 +230,7 @@ LIMIT 5
 ```
 ![alternate text](./Lab9-Q5-6Nodes-2016-07-30_11-10-40.png)
 
-#### 7 Teammates
+#### 7 Teammates, WONDER MAN joined the team
 ```
 ╒══════════════════════════════╕
 │other                         │
@@ -258,7 +258,7 @@ LIMIT 5
 ```
 ![alternate text](./Lab9-Q5-7Nodes-2016-07-30_11-10-40.png)
 
-#### 8 Teammates
+#### 8 Teammates, HAWK joined the team
 ```
 ╒══════════════════════════════╕
 │other                         │
@@ -288,7 +288,7 @@ LIMIT 5
 ```
 ![alternate text](./Lab9-Q5-8Nodes-2016-07-30_11-10-40.png)
 
-#### 9 Teammates
+#### 9 Teammates, IRON MAN IV joined the team
 ```
 ╒══════════════════════════════╕
 │other                         │
@@ -321,7 +321,7 @@ LIMIT 5
 ```
 ![alternate text](./Lab9-Q5-9Nodes-2016-07-30_11-10-40.png)
 
-#### 10 Teammates
+#### 10 Teammates, JAVIS joined the team
 ```
 ╒══════════════════════════════╕
 │other                         │
@@ -357,3 +357,4 @@ LIMIT 5
 ```
 ![alternate text](./Lab9-Q5-10Nodes-2016-07-30_11-10-40.png)
 
+> The result graphs are always fully connected
