@@ -2,23 +2,27 @@
 
 
 #Connecting to a database
-#Note: If the database does not exist, then this command will create the database
+#Note: If the database does not exist, then the following codes will create the database
 
 
 import psycopg2
 
-conn = psycopg2.connect(database="Tcount", user="postgres", password="pass", host="localhost", port="5432")
+conn = psycopg2.connect(database="postgres", user="postgres", password="pass", host="localhost", port="5432")
 
 
 try:
     cur = conn.cursor()
     cur.execute("CREATE DATABASE Tcount")
     cur.close()
+    conn.commit()
     conn.close()
 except:
     print "Could not create Tcount"​
 
 
+#Connecting to Tcount
+
+conn = psycopg2.connect(database="Tcount", user="postgres", password="pass", host="localhost", port="5432")
 
 
 #Create a Table
