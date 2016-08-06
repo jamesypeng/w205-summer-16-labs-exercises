@@ -19,9 +19,202 @@ slines.saveAsTextFiles("file:////root/lab_10/venue_log")
 ssc.start()
 ```
 
+
 ```
+>>> ssc.start()
+>>> -------------------------------------------
+Time: 2016-08-06 15:15:10
+-------------------------------------------
+
+-------------------------------------------
+Time: 2016-08-06 15:15:10
+-------------------------------------------
+
+16/08/06 15:15:11 WARN DomainSocketFactory: The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+-------------------------------------------
+Time: 2016-08-06 15:15:20
+-------------------------------------------
+165
+
+-------------------------------------------
+Time: 2016-08-06 15:15:20
+-------------------------------------------
+{u'lat': 37.790005, u'venue_id': 21741962, u'lon': -122.397354, u'venue_name': u'Couchbase San Francisco'}
+{u'lat': 1.300357, u'venue_id': 17525192, u'lon': 103.839043, u'venue_name': u'Food Republic at Level 5'}
+{u'lat': -28.001623, u'venue_id': 1087923, u'lon': 153.416496, u'venue_name': u'Gold Coast Art Centre'}
+{u'lat': 46.807144, u'venue_id': 24186719, u'lon': -71.238655, u'venue_name': u'Kalimera'}
+{u'lat': 42.622475, u'venue_id': 5728532, u'lon': -71.361862, u'venue_name': u'Panera Bread'}
+{u'lat': 45.515067, u'venue_id': 899456, u'lon': -122.678453, u'venue_name': u'Portland City Hall'}
+{u'lat': 47.65704, u'venue_id': 19107532, u'lon': -122.344719, u'venue_name': u'Little Heart Space'}
+{u'lat': 33.048553, u'venue_id': 4448112, u'lon': -96.82901, u'venue_name': u'Cinemark West Plano and XD'}
+{u'lat': 33.216774, u'venue_id': 23939042, u'lon': -117.218994, u'venue_name': u'First Lutheran Church'}
+{u'lat': -28.001623, u'venue_id': 1087923, u'lon': 153.416496, u'venue_name': u'Gold Coast Art Centre'}
+...
+
+-------------------------------------------
+Time: 2016-08-06 15:15:30
+-------------------------------------------
+169
+
+-------------------------------------------
+Time: 2016-08-06 15:15:30
+-------------------------------------------
+{u'lat': 0, u'venue_id': 23814581, u'lon': 0, u'venue_name': u'Golden Mile Bowling'}
+{u'lat': 36.169121, u'venue_id': 23875465, u'lon': -115.13961, u'venue_name': u'Co-Operate on Fremont'}
+{u'lat': 38.921752, u'venue_id': 1140210, u'lon': -77.035037, u'venue_name': u'Sri Sri Center for Peace and Meditation'}
+{u'lat': 49.243789, u'venue_id': 749483, u'lon': -122.892633, u'venue_name': u'Best Western Coquitlam Inn Convention Centre'}
+{u'lat': 47.611515, u'venue_id': 24067329, u'lon': -122.345413, u'venue_name': u'Tune'}
+{u'lat': 28.664251, u'venue_id': 23759123, u'lon': -81.39109, u'venue_name': u'Turkish Bar & Grill'}
+{u'lat': 40.653358, u'venue_id': 1499088, u'lon': -73.512436, u'venue_name': u'Wantagh Park'}
+{u'lat': 41.892548, u'venue_id': 1037115, u'lon': -88.105433, u'venue_name': u'Red Apple Pancake House'}
+{u'lat': 45.486562, u'venue_id': 4282692, u'lon': -122.805689, u'venue_name': u'Sage Center'}
+{u'lat': 47.611515, u'venue_id': 24067329, u'lon': -122.345413, u'venue_name': u'Tune'}
+...
+
+-------------------------------------------
+Time: 2016-08-06 15:15:40
+-------------------------------------------
+157
+
+-------------------------------------------
+Time: 2016-08-06 15:15:40
+-------------------------------------------
+{u'lat': 34.116024, u'venue_id': 23995059, u'lon': -117.71907, u'venue_name': u'Rancho San Antonio Botanic Gardens'}
+{u'lat': 1.300357, u'venue_id': 17525192, u'lon': 103.839043, u'venue_name': u'Food Republic at Level 5'}
+{u'lat': 40.745945, u'venue_id': 14584482, u'lon': -74.25901, u'venue_name': u'South Mountain Yoga'}
+{u'lat': 44.045547, u'venue_id': 13430212, u'lon': -123.102142, u'venue_name': u'Mcnail-Riley House'}
+{u'lat': 43.734634, u'venue_id': 24080529, u'lon': -79.282501, u'venue_name': u'Epic Sports Badminton Club'}
+{u'lat': 33.380379, u'venue_id': 17796852, u'lon': -111.666183, u'venue_name': u'The Hub '}
+{u'lat': 47.795555, u'venue_id': 1169299, u'lon': -122.114365, u'venue_name': u'Crystal Creek Farms'}
+{u'lat': 48.466053, u'venue_id': 1610756, u'lon': -123.410461, u'venue_name': u'Marigold park'}
+{u'lat': 40.756901, u'venue_id': 22427342, u'lon': -73.990028, u'venue_name': u'Microsoft'}
+{u'lat': 39.52055, u'venue_id': 9327552, u'lon': -104.907898, u'venue_name': u'1198 Finn Ave'}
+...
+
+-------------------------------------------
+Time: 2016-08-06 15:15:50
+-------------------------------------------
+333
+
+-------------------------------------------
+Time: 2016-08-06 15:15:50
+-------------------------------------------
+{u'lat': 33.68428, u'venue_id': 21945532, u'lon': -112.08313, u'venue_name': u'Deer Valley Airport'}
+{u'lat': 38.011219, u'venue_id': 23990499, u'lon': -84.456261, u'venue_name': u'Crust'}
+{u'lat': 34.071278, u'venue_id': 16448342, u'lon': -118.384445, u'venue_name': u'300 N Clark Dr'}
+{u'lat': 0, u'venue_id': 22645732, u'lon': 0, u'venue_name': u'North Seattle '}
+{u'lat': 32.753937, u'venue_id': 1401046, u'lon': -97.332909, u'venue_name': u'Taverna'}
+{u'lat': -31.976837, u'venue_id': 6752812, u'lon': 115.862259, u'venue_name': u'Sir James Mitchell Park - South Perth '}
+{u'lat': 42.064476, u'venue_id': 24178164, u'lon': -88.148582, u'venue_name': u'CDK Global'}
+{u'lat': 34.071278, u'venue_id': 16448342, u'lon': -118.384445, u'venue_name': u'300 N Clark Dr'}
+{u'lat': 47.680763, u'venue_id': 7687192, u'lon': -122.404548, u'venue_name': u'Shilshole Bay Marina'}
+{u'lat': 33.68428, u'venue_id': 21945532, u'lon': -112.08313, u'venue_name': u'Deer Valley Airport'}
+...
+
+-------------------------------------------
+Time: 2016-08-06 15:16:00
+-------------------------------------------
+
+-------------------------------------------
+Time: 2016-08-06 15:16:00
+-------------------------------------------
+
+-------------------------------------------
+Time: 2016-08-06 15:16:10
+-------------------------------------------
+134
+
+-------------------------------------------
+Time: 2016-08-06 15:16:10
+-------------------------------------------
+{u'lat': 34.074036, u'venue_id': 11488612, u'lon': -84.311569, u'venue_name': u'Club 201 (American Legion Post 201'}
+{u'lat': 45.531334, u'venue_id': 4964842, u'lon': -122.56319, u'venue_name': u'Gateway Transit Center 99th avenue, first floor'}
+{u'lat': 30.404694, u'venue_id': 24118888, u'lon': -97.721611, u'venue_name': u'11800 Domain Blvd'}
+{u'lat': 48.490093, u'venue_id': 24163940, u'lon': -123.402901, u'venue_name': u'Grohovac installations (near)'}
+{u'lat': 38.063103, u'venue_id': 15225362, u'lon': -91.229057, u'venue_name': u'Onondaga Cave State Park'}
+{u'lat': 42.156448, u'venue_id': 14084722, u'lon': -74.137016, u'venue_name': u'Roaring Kill Parking Area'}
+{u'lat': 42.353497, u'venue_id': 20598212, u'lon': -71.059151, u'venue_name': u'Good Life'}
+{u'lat': 35.226253, u'venue_id': 1543691, u'lon': -80.844313, u'venue_name': u'Skookum'}
+{u'lat': 40.739993, u'venue_id': 736094, u'lon': -84.106984, u'venue_name': u'The Meeting Place'}
+{u'lat': 33.581291, u'venue_id': 16666822, u'lon': -111.79158, u'venue_name': u'Fraesfield Mountain Trailhead'}
+...
+
+-------------------------------------------
+Time: 2016-08-06 15:16:20
+-------------------------------------------
+
+-------------------------------------------
+Time: 2016-08-06 15:16:20
+-------------------------------------------
+
 ```
 
+
+```{bash}
+[root@ip-172-31-25-241 lab_10]# ls -l
+total 1648
+drwxr-xr-x 2 root root    4096 Aug  6 15:16 datastream
+-rw-r--r-- 1 root root 1637595 Aug  6 10:49 meetup.data
+drwxr-xr-x 2 root root    4096 Aug  6 15:14 somedata
+drwxr-xr-x 2 root root    4096 Aug  6 15:15 venue_log-1470496510000
+drwxr-xr-x 2 root root    4096 Aug  6 15:15 venue_log-1470496520000
+drwxr-xr-x 2 root root    4096 Aug  6 15:15 venue_log-1470496530000
+drwxr-xr-x 2 root root    4096 Aug  6 15:15 venue_log-1470496540000
+drwxr-xr-x 2 root root    4096 Aug  6 15:15 venue_log-1470496550000
+drwxr-xr-x 2 root root    4096 Aug  6 15:16 venue_log-1470496560000
+drwxr-xr-x 2 root root    4096 Aug  6 15:16 venue_log-1470496570000
+drwxr-xr-x 2 root root    4096 Aug  6 15:16 venue_log-1470496580000
+-rw-r--r-- 1 root root      62 Aug  6 10:04 words.txt
+[root@ip-172-31-25-241 lab_10]# ls -lR venue_log-*        
+venue_log-1470496510000:
+total 0
+-rw-r--r-- 1 root root 0 Aug  6 15:15 _SUCCESS
+
+venue_log-1470496520000:
+total 20
+-rw-r--r-- 1 root root     0 Aug  6 15:15 _SUCCESS
+-rw-r--r-- 1 root root 17130 Aug  6 15:15 part-00000
+
+venue_log-1470496530000:
+total 20
+-rw-r--r-- 1 root root     0 Aug  6 15:15 _SUCCESS
+-rw-r--r-- 1 root root 17791 Aug  6 15:15 part-00000
+
+venue_log-1470496540000:
+total 20
+-rw-r--r-- 1 root root     0 Aug  6 15:15 _SUCCESS
+-rw-r--r-- 1 root root 16529 Aug  6 15:15 part-00000
+
+venue_log-1470496550000:
+total 40
+-rw-r--r-- 1 root root     0 Aug  6 15:15 _SUCCESS
+-rw-r--r-- 1 root root 18027 Aug  6 15:15 part-00000
+-rw-r--r-- 1 root root 17052 Aug  6 15:15 part-00001
+
+venue_log-1470496560000:
+total 0
+-rw-r--r-- 1 root root 0 Aug  6 15:16 _SUCCESS
+
+venue_log-1470496570000:
+total 16
+-rw-r--r-- 1 root root     0 Aug  6 15:16 _SUCCESS
+-rw-r--r-- 1 root root 13736 Aug  6 15:16 part-00000
+
+venue_log-1470496580000:
+total 0
+-rw-r--r-- 1 root root 0 Aug  6 15:16 _SUCCESS
+[root@ip-172-31-25-241 lab_10]# head ./venue_log-1470496520000/part-00000 
+{u'lat': 37.790005, u'venue_id': 21741962, u'lon': -122.397354, u'venue_name': u'Couchbase San Francisco'}
+{u'lat': 1.300357, u'venue_id': 17525192, u'lon': 103.839043, u'venue_name': u'Food Republic at Level 5'}
+{u'lat': -28.001623, u'venue_id': 1087923, u'lon': 153.416496, u'venue_name': u'Gold Coast Art Centre'}
+{u'lat': 46.807144, u'venue_id': 24186719, u'lon': -71.238655, u'venue_name': u'Kalimera'}
+{u'lat': 42.622475, u'venue_id': 5728532, u'lon': -71.361862, u'venue_name': u'Panera Bread'}
+{u'lat': 45.515067, u'venue_id': 899456, u'lon': -122.678453, u'venue_name': u'Portland City Hall'}
+{u'lat': 47.65704, u'venue_id': 19107532, u'lon': -122.344719, u'venue_name': u'Little Heart Space'}
+{u'lat': 33.048553, u'venue_id': 4448112, u'lon': -96.82901, u'venue_name': u'Cinemark West Plano and XD'}
+{u'lat': 33.216774, u'venue_id': 23939042, u'lon': -117.218994, u'venue_name': u'First Lutheran Church'}
+{u'lat': -28.001623, u'venue_id': 1087923, u'lon': 153.416496, u'venue_name': u'Gold Coast Art Centre'}
+```
 
 ### 3: Provide a screenshot showing the running Spark Streaming application
 
